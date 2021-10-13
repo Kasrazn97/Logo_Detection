@@ -8,6 +8,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+DLCV_logo_project/
 build/
 develop-eggs/
 dist/
@@ -127,3 +128,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Jupyter notebooks
+*.ipynb
+*.csv
