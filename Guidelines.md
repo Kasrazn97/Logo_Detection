@@ -11,6 +11,7 @@
 1. Connect to VM
 2. Run commands from ```load_data_yolo5.py``` in home/labuser/Logo_project/datasets/logos_yolo5 (just running the script doesnt work, idk why)
 3. Run ```merge_batches.py```
+4. For darknet run also ```merge_images_labels.py``` since it turned out the data structure should be a bit different
 
 ### Set up Yolo5 (done)
 
