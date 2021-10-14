@@ -67,4 +67,3 @@ for zip_batch in zipped_batches:
 # for spt in splits:
 #     allocate_files(spt)
 
-# scp -P 63278 /Users/aliyadavletshina/Desktop/Bocconi/DL-CV/Loggo_Detection/darknet_dataset/dataset.zip labuser@ml-lab-df324f47-f000-41e2-8ad1-974a4c03bfc3.westeurope.cloudapp.azure.com:/home/labuser/Logo_project/datasets
