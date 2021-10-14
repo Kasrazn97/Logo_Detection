@@ -10,6 +10,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+DLCV_logo_project/
 build/
 develop-eggs/
 dist/
@@ -130,6 +131,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+<<<<<<< HEAD
 # dataset folders
 darknet_dataset/
 yolo5_train/
@@ -138,4 +140,8 @@ DLCV_logo_project/
 
 # image extensions and annotations
 *.jpg
+=======
+# Jupyter notebooks
+*.ipynb
+>>>>>>> 9df87bf3b2acd187686c5617fd959c81175e5bd8
 *.csv
