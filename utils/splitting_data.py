@@ -36,6 +36,7 @@ train_pics = os.listdir(train_data_dir)
 
 # moving mandatory 5 logos to train/mandatory_logos folder
 mandatory_pics = [pic for pic in train_pics if pic in annotations_mandatory['photo_filename'].tolist()]
+os.mkdir(os.path.join(data_path, 'train','mandatory_logos'))
 os.mkdir(os.path.join(data_path, 'train','mandatory_logos','images'))
 mandatory_logos_dir = os.path.join(data_path, 'train','mandatory_logos','images')
 for pic in mandatory_pics:
@@ -43,6 +44,7 @@ for pic in mandatory_pics:
 
 # moving optional 12 logos to train/mandatory_logos folder
 optional_logos_dir = os.path.join(data_path, 'train','optional_logos','images')
+optional_logos_dir = os.path.join(data_path, 'train','optional_logos')
 os.mkdir(optional_logos_dir)
 optional_pics = [pic for pic in train_pics if pic not in annotations_mandatory['photo_filename'].tolist()]
 for pic in optional_pics:
