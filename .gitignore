@@ -30,6 +30,12 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+darknet/
+yolo_v5/
+datasets/
+Assets/
+raw_data/
+efficientdet/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
