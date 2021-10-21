@@ -56,7 +56,7 @@ def label_writer(file, list, path):
 def make_label(create_path,data_path,noise=False):
     df = pd.read_csv(data_path)
     for index, row in df.iterrows():
-        file_name = '{0}.txt'.format(row['photo_filename'])
+        file_name = '{0}.txt'.format(str.split(row['photo_filename'],'.')[0])
         if noise:
             classIndex, xcen, ycen, w, h, trashClass = BndBox2YoloLine(row,noise=True)
         else:
