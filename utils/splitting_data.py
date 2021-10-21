@@ -36,16 +36,13 @@ train_pics = os.listdir(train_data_dir)
 
 # moving mandatory 5 logos to train/mandatory_logos folder
 mandatory_pics = [pic for pic in train_pics if pic in annotations_mandatory['photo_filename'].tolist()]
-os.mkdir(os.path.join(data_path, 'train','mandatory_logos'))
-os.mkdir(os.path.join(data_path, 'train','mandatory_logos','images'))
-mandatory_logos_dir = os.path.join(data_path, 'train','mandatory_logos','images')
+os.mkdir(os.path.join(data_path, 'train','images'))
+mandatory_logos_dir = os.path.join(data_path, 'train','images')
 for pic in mandatory_pics:
      shutil.move(os.path.join(train_data_dir, pic), mandatory_logos_dir)
 
 # moving optional 12 logos to train/mandatory_logos folder
-optional_logos_dir = os.path.join(data_path, 'train','optional_logos','images')
-optional_logos_dir = os.path.join(data_path, 'train','optional_logos')
-os.mkdir(optional_logos_dir)
+optional_logos_dir = os.path.join(data_path, 'train','images')
 optional_pics = [pic for pic in train_pics if pic not in annotations_mandatory['photo_filename'].tolist()]
 for pic in optional_pics:
      shutil.move(os.path.join(train_data_dir, pic), optional_logos_dir)
@@ -74,7 +71,7 @@ annotations_noise = pd.read_csv("annot_noise.csv")
 annotations_noise['class'] = ['NULL']*len(annotations_noise)
 annotations_noise.to_csv('annotations_noise.csv', index=False)
 
-noise_logos_dir = os.path.join(data_path, 'noise','images')
+noise_logos_dir = os.path.join(data_path, 'noise', 'images') 
 noise_dir = os.path.join(data_path, 'noise')
 os.mkdir(noise_logos_dir)
 nois_pics = os.listdir(noise_dir)
