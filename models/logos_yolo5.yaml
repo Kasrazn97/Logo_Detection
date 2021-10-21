@@ -5,5 +5,5 @@ val: valid/images  # val images (relative to 'path')
 test:  test/images # test images (optional)
 
 # Classes
-nc: 5  # number of classes
-names: ['Nike', 'Adidas', 'Under_Armour', 'Puma', 'The_North_Face']  # class names
+nc: 17  # number of classes
+names: ['Nike', 'Adidas', 'Under_Armour', 'Puma', 'The_North_Face', 'Starbucks', 'Ralph_Lauren_Corporation', 'Apple_Inc.', 'Mercedes_Benz', 'NFL', 'Emirates', 'Coca_Cola', 'Chanel', 'Hard_Rock_Cafe', 'Intimissimi', 'Toyota', 'Pepsi']  # class names
