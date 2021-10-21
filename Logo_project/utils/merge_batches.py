@@ -1,6 +1,6 @@
 """
-Run this in the folder with zipped files.
 Merges batches of preprocessed data from Roboflow into one folder for each of train, test and valid.
+Run this in the folder with zipped files.
 """
 
 import os
