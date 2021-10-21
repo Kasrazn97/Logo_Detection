@@ -24,32 +24,32 @@ annotations['class'] = annotations['class'].apply(lambda x: re.sub('-', '_', x))
 
 annotations.to_csv('annotations.csv', index=False)
 
-mandatory_classes = 'Nike, Adidas, Under_Armour, Puma, The_North_Face'.split(", ")
-annotations_mandatory = annotations[annotations['class'].apply(lambda x: x in mandatory_classes)]
-annotations_optional = annotations[annotations['class'].apply(lambda x: x not in mandatory_classes)]
-annotations_mandatory.to_csv('annotations_mandatory.csv',index=False)
-annotations_optional.to_csv('annotations_optional.csv',index=False)
-print(f'Mandatory annotations: {len(annotations_mandatory)}\nOptional annotations: {len(annotations_optional)}')
+# mandatory_classes = 'Nike, Adidas, Under_Armour, Puma, The_North_Face'.split(", ")
+# annotations_mandatory = annotations[annotations['class'].apply(lambda x: x in mandatory_classes)]
+# annotations_optional = annotations[annotations['class'].apply(lambda x: x not in mandatory_classes)]
+# annotations_mandatory.to_csv('annotations_mandatory.csv',index=False)
+# annotations_optional.to_csv('annotations_optional.csv',index=False)
+# print(f'Mandatory annotations: {len(annotations_mandatory)}\nOptional annotations: {len(annotations_optional)}')
 
 train_data_dir = os.path.join(data_path, 'train')
 train_pics = os.listdir(train_data_dir)
 
 
 # moving mandatory 5 logos to train/mandatory_logos folder
-mandatory_pics = [pic for pic in train_pics if pic in annotations_mandatory['photo_filename'].tolist()]
+pics = [pic for pic in train_pics if pic in annotations['photo_filename'].tolist()]
 os.mkdir(os.path.join(data_path, 'train','images'))
-mandatory_logos_dir = os.path.join(data_path, 'train','images')
-for pic in mandatory_pics:
-     shutil.move(os.path.join(train_data_dir, pic), mandatory_logos_dir)
+logos_dir = os.path.join(data_path, 'train','images')
+for pic in pics:
+     shutil.move(os.path.join(train_data_dir, pic), logos_dir)
 
 # moving optional 12 logos to train/mandatory_logos folder
-optional_logos_dir = os.path.join(data_path, 'train','images')
-optional_pics = [pic for pic in train_pics if pic not in annotations_mandatory['photo_filename'].tolist()]
-for pic in optional_pics:
-     shutil.move(os.path.join(train_data_dir, pic), optional_logos_dir)
+# optional_logos_dir = os.path.join(data_path, 'train','images')
+# optional_pics = [pic for pic in train_pics if pic not in annotations_mandatory['photo_filename'].tolist()]
+# for pic in optional_pics:
+#      shutil.move(os.path.join(train_data_dir, pic), optional_logos_dir)
 
 
-print(f'Number of mandatory 5 classes train pics: {len(os.listdir(mandatory_logos_dir))}\nNumber of optional 12 classes train pics: {len(os.listdir(optional_logos_dir))}')
+# print(f'Number of mandatory 5 classes train pics: {len(os.listdir(mandatory_logos_dir))}\nNumber of optional 12 classes train pics: {len(os.listdir(optional_logos_dir))}')
 # To use in Roboflow you may uncomment the followings to devide into three batches due to it's limitation
 # batch1_dir = os.path.join(data_path,'train/mandatory_logos/batch1')
 # batch2_dir = os.path.join(data_path, 'train/mandatory_logos/batch2')
