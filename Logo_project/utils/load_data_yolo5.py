@@ -1,4 +1,7 @@
-""" Run this in datasets/logos_yolo5 """
+""" 
+Loading 3 batches of datasets from Roboflow for yolov5.
+Run this in datasets/logos_yolo5 
+"""
 
 # pip install roboflow
 

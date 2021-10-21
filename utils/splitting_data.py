@@ -1,6 +1,7 @@
 """ 
 Run in DLCV_logo_project folder. 
-Splits the data (images and labels) into mandatory and optional part. Mandatory part is split further into 3 batches for Roboflow (due to limits).
+Splits the data (images and labels) into mandatory and optional part. 
+Mandatory part is split further into 3 batches for Roboflow (due to limits).
 Roboflow only allows to process 10k pics per one project, and 50k pics per account for free. 
 """
 

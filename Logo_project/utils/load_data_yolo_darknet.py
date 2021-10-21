@@ -1,4 +1,7 @@
-""" Run this in datasets/logos_yolo_darknet """
+""" 
+Loading 3 batches of datasets from Roboflow for darkent.
+Run this in datasets/logos_yolo_darknet 
+"""
 
 # !pip install roboflow
 
