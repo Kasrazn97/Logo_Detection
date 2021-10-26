@@ -37,7 +37,6 @@ def train_test_dev_split():
         print('test folders already there')
         pass
 
-    #Accesses the current data to be handled for the lab_01 task
     images = os.listdir(train_image_path)
     labels = os.listdir(train_label_path)
     val_size = int(len(images)*0.2)
