@@ -29,7 +29,7 @@ How the algo works ...
 <a name="dataset"></a>
 ### 1. Dataset
 The dataset we deployed consists of xx images. We used Roboflow to do augmentation. We did rotation, mosaic bla bla
-We trained our model to recognize the following logos: Nike, Adidas, Under Armour, Puma, The North Face, Starbucks, Apple Inc., Mercedes-Benz, NFL, Emirates, Coca-Cola, Chanel, Toyota, Pepsi.
+We trained our model to recognize the following logos: Nike, Adidas, Under Armour, Puma, The North Face, Starbucks, Apple Inc., Mercedes-Benz, NFL, Emirates, Coca-Cola, Chanel, Toyota, Pepsi, Hard Rock Cafè.
 
 <a name="train"></a>
 ### 2. Training
