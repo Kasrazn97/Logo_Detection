@@ -20,38 +20,40 @@ Our goal here was to train a model able to detect brand logos.
 <a name="env"></a>
 ## 1. Environment
 
-The smaller models were trained using Colab while for larger ones we used Azure Virtual Machine. 
+We developed our codes using Google Colab, and then we trained the largest ones on an Azure Virtual Machine. 
+--- IMMAGINE DI NICO DELLA VM ---
 
 <div align="center">
     <a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb">
-        <img src="https://github.com/ultralytics/yolov5/releases/download/v1.0/logo-colab-small.png" width="15%"/>
+        <img src="https://github.com/ultralytics/yolov5/releases/download/v1.0/logo-colab-small.png" width="10%"/>
     </a>
     <a href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwiS0f6Bt7j0AhWRzXcKHXXkA0gYABAAGgJlZg&ae=2&ohost=www.google.com&cid=CAESQOD2WXDDC3bcaN6__E7gY08J137qyTW6nOQb8DRsJPfVaCbKW_MnwwecmS8dCR7oZPQSLYd6V8LfB32ZLnpJUqA&sig=AOD64_2JGNrArPWvbnOJLMOXwqSsXl1gSw&q&adurl&ved=2ahUKEwjrovWBt7j0AhW3gv0HHXPGCYYQ0Qx6BAgCEAE&dct=1">
-        <img src="https://aspiracloud.com/wp-content/uploads/2019/07/azure.png" width="15%"/>
+        <img src="https://aspiracloud.com/wp-content/uploads/2019/07/azure.png" width="10%"/>
     </a>
 </div>
 
 <a name="desc"></a>
 ## 2. Description
 
-We used two model architectures from Yolov5 family pretrained on COCO dataset: Yolov5s, Yolov5l. Experimenting with dataset preprocessing steps we produced 5 different models and compared their performance. 
+We used two model architectures from the **YOLOv5** family : **YOLOv5s**, **YOLOv5l**. Experimenting with dataset preprocessing steps and fine-tuning procedures, we produced 5 different models and compared their performance. 
 
-We chose [YoloV5](https://github.com/ultralytics/yolov5/blob/master/README.md) since it is state-of-the-art model and considered to be one of the best in terms of speed and accuracy trade-off. 
+We chose [YoloV5](https://github.com/ultralytics/yolov5/blob/master/README.md) since it is state-of-the-art model and is considered to be one of the best in terms of speed and accuracy trade-off. Here the details of the two models we chose to train (you can find the details of all the YOLOv5 models [here](https://github.com/ultralytics/yolov5/blob/master/README.md)):
  
-| Model| Size<br><sup>(pixels) | Params<br><sup>(M) | Speed<br><sup>V100 b1<br>(ms) |
-| :-----: | :-: | :-: | :-: |
-| Yolov5s | 640 | 7.4 | 6.4 |
-| Yolov5l | 640 | 46.5 | 8.2 |
- 
-
+|Model |size<br><sup>(pixels) |mAP<sup>val<br>0.5:0.95 |mAP<sup>val<br>0.5 |Speed<br><sup>CPU b1<br>(ms) |Speed<br><sup>V100 b1<br>(ms) |Speed<br><sup>V100 b32<br>(ms) |params<br><sup>(M) |FLOPs<br><sup>@640 (B)
+|---                    |---  |---    |---    |---    |---    |---    |---    |---
+|YOLOv5s      |640  |37.2   |56.0   |98     |6.4    |0.9    |7.2    |16.5
+|YOLOv5l      |640  |48.8   |67.2   |430    |10.1   |2.7    |46.5   |109.1
+<br>
+   
+   
 <a name="dataset"></a>
 ### 1. Dataset
 
-The raw dataset we use consists of images of the following logos: Nike, Adidas, Under Armour, Puma, The North Face, Starbucks, Apple Inc., Mercedes-Benz, NFL, Emirates, Coca-Cola, Chanel, Toyota, Pepsi, Hard Rock Cafè. We used [Roboflow](https://roboflow.com/?ref=ultralytics) to convert dataset to a COCO format and apply preprocessing steps which include image resize and data augmentation. For data augmentation we changed the following settings: rotation, blur, flip, shear, exposure, mosaic, crop. All agmentations were applied on raw images and on a bounding box level. 
+The raw dataset we deployed consists of images representing the following logos: Nike, Adidas, Under Armour, Puma, The North Face, Starbucks, Apple Inc., Mercedes-Benz, NFL, Emirates, Coca-Cola, Chanel, Toyota, Pepsi, Hard Rock Cafè. We used [Roboflow](https://roboflow.com/?ref=ultralytics) to convert dataset to a COCO format and apply preprocessing steps which include image resize and data augmentation. In particular we applied the following augmentations: rotation, blur, flip, shear, exposure, mosaic, crop (both at image and bounding box levels). 
  
  <div align="center">
     <a href="https://roboflow.com/?ref=ultralytics">
-        <img src="https://github.com/ultralytics/yolov5/releases/download/v1.0/logo-roboflow-long.png" width="49%"/>
+        <img src="https://github.com/ultralytics/yolov5/releases/download/v1.0/logo-roboflow-long.png" width="35%"/>
     </a>
 </div>
 
