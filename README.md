@@ -26,11 +26,6 @@ YoloV5 is considered to be one of the best models in terms of speed and accuracy
 ## 2. Description
 How the algo works ...
 
-| Model | Size | Params|
-| ______ | _____ | ____ |
-| Yolov5s | 640 | 7.2 |
-| Yolov5l | 640 | 46.5 |
-
 <a name="dataset"></a>
 ### 1. Dataset
 The dataset we deployed consists of xx images. We used Roboflow to do augmentation. We did rotation, mosaic bla bla
