@@ -27,7 +27,7 @@ YoloV5 is considered to be one of the best models in terms of speed and accuracy
 How the algo works ...
 
 | Model | Size | Params|
-_________________________________
+| ______ | _____ | ____ |
 | Yolov5s | 640 | 7.2 |
 | Yolov5l | 640 | 46.5 |
 
