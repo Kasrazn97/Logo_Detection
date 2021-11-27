@@ -14,15 +14,15 @@ DIR="${PWD}/yolov5"
 # yolov5s_cleanData       : small yolo traind on 20K images
 # yolov5s_DirtyData	  : small yolo trained on 40K images witout removing inccorect annotations
 
-Modelname="yolov5l_extra_cleanData" #replace the name of the model you want get inference from here
+Modelname="yolov5s_extra_cleanData" #replace the name of the model you want get inference from here
 
-FOTODIR="${PWD}/Assets/testnow"
+FOTODIR="${PWD}/Assets/main_dataset/test/images"
 
-WEIGHTS="${PWD}/Assets/Models/$Modelname/weights/best.pt"
+WEIGHTS="${PWD}/yolov5/Models/$Modelname/weights/best.pt"
 
 if [ $# -ne 3 ]; then
 	SOURCE=$FOTODIR
-	CONF=0.20
+	CONF=0.40
 	IOU=0.4999
 else
 	SOURCE=$1
@@ -31,4 +31,4 @@ else
 fi
 
 CDIR="${PWD}/Assets/outputs"
-(cd $DIR; python detect.py --weights $WEIGHTS --img 640 --source $SOURCE --conf-thres $CONF --iou-thres $IOU --agnostic-nms --augment --project $CDIR --name output --save-txt --save-conf)
+(cd $DIR; python detect.py --weights $WEIGHTS --source $SOURCE --conf-thres $CONF --iou-thres $IOU --agnostic-nms --augment --project $CDIR --name output --save-txt --save-conf)
