@@ -61,7 +61,7 @@ The raw dataset we deployed consists of images representing the following logos:
 </div>
 
 <div align="center">
- <img src="https://github.com/Kasrazn97/Logo_Detection/blob/main/images/NO_augmentation.png">  <img src="https://github.com/Kasrazn97/Logo_Detection/blob/main/images/augmentation.png">
+ <img src="https://github.com/Kasrazn97/Logo_Detection/blob/main/images/NO_augmentation.png" width ="200" /> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Purple_arrow_right.svg/1200px-Purple_arrow_right.svg.png" width ="70" />  <img src="https://github.com/Kasrazn97/Logo_Detection/blob/main/images/augmentation.png" width ="200" />
 </div>
 
 <a name="train"></a>
@@ -124,8 +124,10 @@ We used 2 different metrics to evaluate our model:
  
 <a name="usage"></a>
 ## 3. Usage Tips
- Instructions to follow - this file is needed for this; to test our algo run this
- 
+- **Data preparation**:
+  
+- **Training**:
+- **Detection**: see the [detect_batch.sh](https://github.com/Kasrazn97/Logo_Detection/blob/main/detect_batch.sh) file
  <a name="ex"></a>
 ## 4. Usage Example
 put the commands to run on the terminal to use our algo
