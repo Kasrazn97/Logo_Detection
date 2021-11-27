@@ -64,7 +64,7 @@ Our final models differ both in the input data used and the training steps appli
  
 1. Yolov5s (version 1): trained on initial dataset with augmentations. We kept frozen 10 layers of the model (the backbone) and fine-tuned the rest. Since the model results were unsatisfatory, we manually cleaned the data by removing images with multiple logos and poorly annotated ones. 
 2. Yolov5s (version 2): cleaned dataset with augmentations (about 20k images). Again, we trained all layers except for the backbone.
-3. Yolov5s (version 3): cleaned dataset with extra augmentation steps adding up to 60k images. Only 6 last layers were trained with 18 others frozen.
+3. Yolov5s (version 3): Fine-tuning the second model with extra augmentation steps adding up to 60k images. Only 6 last layers were trained with 18 others frozen.
 4. Yolov5s (version 4): combined dataset from step 2 and step 3, training all the layers except for the backbone.
 5. Yolov5l: combined dataset from step 2 and step 3 adding more augmentation steps, training all the layers except for the backbone.
 
