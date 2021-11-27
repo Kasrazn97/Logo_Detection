@@ -16,9 +16,9 @@ DIR="${PWD}/yolov5"
 
 Modelname="yolov5s_extra_cleanData" #replace the name of the model you want get inference from here
 
-FOTODIR="${PWD}/Assets/main_dataset/test/images"
+FOTODIR="${PWD}/Assets/testnow"
 
-WEIGHTS="${PWD}/yolov5/Models/$Modelname/weights/best.pt"
+WEIGHTS="${PWD}/Assets/Models/$Modelname/weights/best.pt"
 
 if [ $# -ne 3 ]; then
 	SOURCE=$FOTODIR
