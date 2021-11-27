@@ -93,13 +93,13 @@ We used 2 different metrics to evaluate our model:
  
  <center>
   
-| Model| mAP<sup>val<br>0.5 |mAP<sup>val<br>0.5:0.95 | IoU
-| :-----: | :-: | :-: | :-:
-| YOLOv5s - v1 |  |  |
-| YOLOv5s - v2 |   |  |
-| YOLOv5s - v3 |   |  |
-| YOLOv5s - v4 | 0.881 | 0.664 |
-| YOLOv5l | 0.943 | 0.713 |
+| Model| mAP<sup>val<br>0.5 |mAP<sup>val<br>0.5:0.95  
+| :-----: | :-: | :-: 
+| YOLOv5s - v1 | 0.598 | 0.364 
+| YOLOv5s - v2 | 0.851 | 0.662 
+| YOLOv5s - v3 | 0.846 | 0.563 
+| YOLOv5s - v4 | 0.881 | 0.664 
+| YOLOv5l | 0.943 | 0.713 
 <br>
  </center>
   
@@ -169,6 +169,8 @@ We used 2 different metrics to evaluate our model:
   
   For more information regarding the data prepration refer to:
   https://github.com/ultralytics/yolov5/wiki/Train-Custom-Data
+  
+# TO DO
 - **Inference**: (Nicco here!)
 - **Detection**: see the [detect_batch.sh](https://github.com/Kasrazn97/Logo_Detection/blob/main/detect_batch.sh) file
   
