@@ -16,7 +16,7 @@ def sampler(logo,sample_number,data_path,dataset_path):
     logo_image_path = os.path.join(logo_path,'images')
     images = os.listdir(logo_image_path)
     if len(images) > 2000:
-        images = random.sample(images, k=sample_number)
+        images = random.sample(images, k=min(sample_number,len(images)))
     for img in images:
         shutil.move(os.path.join(logo_image_path, img), dataset_path)
 
