@@ -19,10 +19,6 @@ Our goal here was to train a model able to detect brand logos.
 
 <a name="env"></a>
 ## 1. Environment
-
-We developed our codes using Google Colab, and then we trained the largest ones on an Azure Virtual Machine. 
---- IMMAGINE DI NICO DELLA VM ---
-
 <div align="center">
     <a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb">
         <img src="https://github.com/ultralytics/yolov5/releases/download/v1.0/logo-colab-small.png" width="10%"/>
@@ -32,6 +28,13 @@ We developed our codes using Google Colab, and then we trained the largest ones 
     </a>
 </div>
 
+We developed our codes using *Google Colab*, and then we trained the largest ones on an *Azure Virtual Machine*:   
+
+
+<p align="center">
+<img src="https://github.com/Kasrazn97/Logo_Detection/blob/main/images/VM.jpeg" width="800" height="200">
+<p>
+ 
 <a name="desc"></a>
 ## 2. Description
 
@@ -57,34 +60,66 @@ The raw dataset we deployed consists of images representing the following logos:
     </a>
 </div>
 
+<div align="center">
+ <img src="https://github.com/Kasrazn97/Logo_Detection/blob/main/images/NO_augmentation.png">  <img src="https://github.com/Kasrazn97/Logo_Detection/blob/main/images/augmentation.png">
+</div>
+
 <a name="train"></a>
 ### 2. Training
 
 Our final models differ both in the input data used and the training steps applied.
  
-1. Yolov5s (version 1): trained on initial dataset with augmentations. We kept frozen 10 layers of the model (the backbone) and fine-tuned the rest. Since the model results were unsatisfatory, we manually cleaned the data by removing images with multiple logos and poorly annotated ones. 
-2. Yolov5s (version 2): cleaned dataset with augmentations (about 20k images). Again, we trained all layers except for the backbone.
-3. Yolov5s (version 3): Fine-tuning the second model with extra augmentation steps adding up to 60k images. Only 6 last layers were trained with 18 others frozen.
-4. Yolov5s (version 4): combined dataset from step 2 and step 3, training all the layers except for the backbone.
-5. Yolov5l: combined dataset from step 2 and step 3 adding more augmentation steps, training all the layers except for the backbone.
+1. **Yolov5s (version 1)**: trained on the raw dataset to which we added augmentations. We kept the 10 backbone layers frozen and fine-tuned the rest. Since the model results were unsatisfatory, we manually cleaned the data by removing the poorly annotated images. **TO DO: ADD TOT NUMBER OF IMAGES**
+2. **Yolov5s (version 2)**: cleaned dataset with augmentations (about 20k images in total). Again, we trained all layers except for the backbone. **TODO: ADD NUMBER OF IMAGES PER LOGO AFTER THE CLEANING, BUT BEFORE AUGMENTATION**
+3. **Yolov5s (version 3)**: cleaned dataset with extra augmentation steps, for a total of around 60k images (4549 per logo). Only 6 last layers were trained, thus keeping 18 frozen.
+4. **Yolov5s (version 4)**: combined dataset from step 2 and step 3, with arounf 8994 images for each logo. Tuning all the layers except for the backbone.
+5. **Yolov5l**: combined dataset from step 2 and step 3, adding more augmentation steps. We ended up having 7479 images for each logo. Again, we trained all the layers except for the backbone.
 
 <a name="eval"></a>
 ### 3. Evaluation
-We used xx different metrics to evaluate our model:
+We used 2 different metrics to evaluate our model:
   - **IoU**
   - **mAP**
 
 **IoU**, Intersection over Union, is an evaluation metric used to evaluate the goodness of an object detector by measuring the overlap between two bounding boxes.
 **mAP**, mean Average Precision, of the model measures the Average Precision (computed by calculating the AuC for a particular class) averaged over all the classes .
-**INSERT TABLES WITH THE RESULTS FOR EVERY LOGO**
+
+ Here the average results for each model: 
  
  <center>
   
-| Model| Size<br><sup>(pixels) | Params<br><sup>(M) |
-| :-----: | :-: | :-: |
-| Yolov5s | 640 | 7.4 |
-| Yolov5l | 640 | 46.5 |
+| Model| mAP<sup>val<br>0.5 |mAP<sup>val<br>0.5:0.95 | IoU
+| :-----: | :-: | :-: | :-:
+| YOLOv5s - v1 |  |  |
+| YOLOv5s - v2 |   |  |
+| YOLOv5s - v3 |   |  |
+| YOLOv5s - v4 | 0.881 | 0.664 |
+| YOLOv5l | 0.943 | 0.713 |
+<br>
+ </center>
+  
+   Here the results for **YOLOv5l** for each logo: 
  
+ <center>
+  
+| Logo| mAP<sup>val<br>0.5 |mAP<sup>val<br>0.5:0.95 | IoU
+| :-----: | :-: | :-: | :-:
+| Adidas | 0.98 | 0.753 |
+| Apple Inc. | 0.981 | 0.761 |
+| Chanel | 0.981 | 0.678 |
+| Coca Cola | 0.886 | 0.619 |
+| Emirates | 0.779 | 0.569 |
+| Hard Rock Cafè | 0.957 | 0.743 |
+| Mercedes Benz | 0.984 | 0.789 |
+| NFL | 0.965 | 0.731 |
+| Nike | 0.959 | 0.706 |
+| Pepsi | 0.942 | 0.676 |
+| Puma | 0.925 | 0.667 |
+| Starbucks | 0.975 | 0.823 |
+| The North Face | 0.975 | 0.741 |
+| Toyota | 0.961 | 0.737 |
+| Under Armour | 0.977 | 0.71 |
+<br>
  </center>
  
 <a name="usage"></a>
