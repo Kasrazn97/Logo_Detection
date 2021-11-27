@@ -125,9 +125,53 @@ We used 2 different metrics to evaluate our model:
 <a name="usage"></a>
 ## 3. Usage Tips
 - **Data preparation**:
+  **Train and Inference:**
   
-- **Training**:
+  1. Clone the repository on your local machine.
+  2. Cd Loggo_Detection
+  3. Create a folder name **Assets**
+  4. Cd Assets
+  5. Create a folder name **dataset**
+  6. Put your Yolo formated data based on the following structure:
+  ```
+  --Assets|
+          |--dataset|
+                    |--train|
+                    |        |--images
+                    |        |--labels
+                    |--valid
+                    |        |--images
+                    |        |--labels
+                    |--test
+                    |        |--images
+                    |        |--labels
+  ```
+  
+  **Detect:**
+  
+  1. Clone the repository on your local machine.
+  2. Cd Loggo_Detection
+  3. Create a folder name **Assets**
+  4. Cd Assets
+  5. Create a folder name **testnow**
+  6. Put all your images you want to do inference on under **testnow** folder
+- **Training**: 
+  1. Put the related data.yaml file on yolov5/data
+  2. Run the following command (you can change the model name or any other settings you want):
+  ```
+  python train.py --batch-size 32 --weights yolov5s.pt --data data.yaml --epochs 50 --hyp hyp.finetune.yaml --freeze 10
+  ```
+  
+  For more information regarding the data prepration refer to:
+  https://github.com/ultralytics/yolov5/wiki/Train-Custom-Data
+- **Inference**: (Nicco here!)
 - **Detection**: see the [detect_batch.sh](https://github.com/Kasrazn97/Logo_Detection/blob/main/detect_batch.sh) file
+  
+  1. Open your terminal
+  2. Activate your specific environment you installed the requirments.txt on
+  3. run detect_bach.sh
+  4. See the results under Assets/outputs/output
+  
  <a name="ex"></a>
 ## 4. Usage Example
 put the commands to run on the terminal to use our algo
