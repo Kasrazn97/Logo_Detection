@@ -46,9 +46,10 @@ We used xx different metrics to evaluate our model:
 **mAP**, mean Average Precision, of the model measures the Average Precision (computed by calculating the AuC for a particular class) averaged over all the classes .
 **INSERT TABLES WITH THE RESULTS FOR EVERY LOGO**
 
-| Model |   | #2  |
+| Model | Size | Params |
 | :-----: | :-: | :-: |
-| Seconds | 301 | 283 |
+| Yolov5s | 640 | 7.4 |
+| Yolov5l | 640 | 46.5 |
 
 <a name="usage"></a>
 ## 3. Usage Tips
