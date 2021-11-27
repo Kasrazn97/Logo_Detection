@@ -29,7 +29,12 @@ Our goal here was to train a model able to detect brand logos.
 </div>
 
 We developed our codes using *Google Colab*, and then we trained the largest ones on an *Azure Virtual Machine*:   
+To use the package, follow the guidline bellow:
 
+1. Install python version 3.8
+2. Install the latest version of PyTorch with Cuda 11.3 enabled from the official website
+3. Install the required packes with:
+  ``` pip install -r requirments.txt ```
 
 <p align="center">
 <img src="https://github.com/Kasrazn97/Logo_Detection/blob/main/images/VM.jpeg" width="800" height="200">
