@@ -84,11 +84,11 @@ The raw dataset we deployed consists of images representing the following logos:
 
 Our final models differ both in the input data used and the training steps applied.
  
-1. **Yolov5s (version 1)**: trained on the raw dataset to which we added augmentations. We kept the 10 backbone layers frozen and fine-tuned the rest. Since the model results were unsatisfatory, we manually cleaned the data by removing the poorly annotated images. Around 40k images used.
-2. **Yolov5s (version 2)**: cleaned dataset with augmentations (about 20k images in total). Again, we trained all layers except for the backbone. 
-3. **Yolov5s (version 3)**: cleaned dataset with extra augmentation steps, for a total of around 60k images (4549 per logo). Only 6 last layers were trained, thus keeping 18 frozen.
-4. **Yolov5s (version 4)**: combined dataset from step 2 and step 3, with arounf 8994 images for each logo. Tuning all the layers except for the backbone.
-5. **Yolov5l**: combined dataset from step 2 and step 3, adding more augmentation steps. We ended up having 7479 images for each logo. Again, we trained all the layers except for the backbone.
+1. **YOLOv5s (version 1)**: trained on the raw dataset to which we added augmentations. We kept the 10 backbone layers frozen and fine-tuned the rest. Since the model results were unsatisfatory, we manually cleaned the data by removing the poorly annotated images. Around 40k images used.
+2. **YOLOv5s (version 2)**: cleaned dataset with augmentations (about 20k images in total). Again, we trained all layers except for the backbone. 
+3. **YOLOv5s (version 3)**: cleaned dataset with extra augmentation steps, for a total of around 60k images (4549 per logo). Only 6 last layers were trained, thus keeping 18 frozen.
+4. **YOLOv5s (version 4)**: combined dataset from step 2 and step 3, with arounf 8994 images for each logo. Tuning all the layers except for the backbone.
+5. **YOLOv5l**: combined dataset from step 2 and step 3, adding more augmentation steps. We ended up having 7479 images for each logo. Again, we trained all the layers except for the backbone.
 
 <a name="eval"></a>
 ### 3. Evaluation
@@ -113,15 +113,13 @@ We used 2 different metrics to evaluate our model:
 <br>
  </center>
 
-Model 1             |  Model 3             | Final model
+YOLOv5s - v1            |  YOLOv5s - v3            | YOLOv5l
 :-------------------------:|:-------------------------:|:-------------------------:
 ![](https://github.com/Kasrazn97/Logo_Detection/blob/main/images/YOLOv5s_v1.jpg)  |  ![](https://github.com/Kasrazn97/Logo_Detection/blob/main/images/YOLOv5s_v3.jpg)  |  ![](https://github.com/Kasrazn97/Logo_Detection/blob/main/images/YOLOv5l.jpg)
 
   
    Here the results for **YOLOv5l** for each logo: 
  
- <center>
-  
 | Logo| mAP<sup>val<br>0.5 |mAP<sup>val<br>0.5:0.95 | IoU
 | :-----: | :-: | :-: | :-:
 | Adidas | 0.98 | 0.753 | 0.873
@@ -140,7 +138,7 @@ Model 1             |  Model 3             | Final model
 | Toyota | 0.961 | 0.737 | 0.883
 | Under Armour | 0.977 | 0.71 | 0.867
 <br>
- </center>
+
  
 <a name="usage"></a>
 ## 3. Usage Tips
@@ -150,10 +148,10 @@ Model 1             |  Model 3             | Final model
   **Train and Inference:**
   
   1. Clone the repository on your local machine.
-  2. Cd Logo_Detection
-  3. Create a folder name **Assets**
-  4. Cd Assets
-  5. Create a folder name **dataset**
+  2. cd *Logo_Detection*
+  3. Create a folder name *Assets*
+  4. cd *Assets*
+  5. Create a folder name *dataset*
   6. Put your Yolo formated data based on the following structure:
   ```
   --Assets|
@@ -172,13 +170,13 @@ Model 1             |  Model 3             | Final model
   **Detect:**
   
   1. Clone the repository on your local machine.
-  2. Cd Logo_Detection
-  3. Create a folder name **Assets**
-  4. Cd Assets
-  5. Create a folder name **testnow**
-  6. Put all your images you want to do inference on under **testnow** folder
+  2. cd *Logo_Detection*
+  3. Create a folder name *Assets*
+  4. cd *Assets*
+  5. Create a folder name *testnow*
+  6. Put all your images you want to do inference on under *testnow* folder
 - **Training**: 
-  1. Put the related data.yaml file on yolov5/data
+  1. Put the related *data.yaml* file on *yolov5/data*
   2. Run the following command (you can change the model name or any other settings you want):
   ```
   python train.py --batch-size 32 --weights yolov5s.pt --data data.yaml --epochs 50 --hyp hyp.finetune.yaml --freeze 10
@@ -190,8 +188,8 @@ Model 1             |  Model 3             | Final model
   
 <a name="inf"></a>
 ### Inference and detection: 
-  Once our algorithm has finished training, we can evaluate its performance on a test set. Follow the instructions provided in the points below to run the algorithm and retrieve the results of both image.jpg with a bounding box around the precition, and its respective image.txt label describing the detected classes and their respective bounding box in a format (class_id, x_mid, y_mid, width, height).
+  Once our algorithm has finished training, we can evaluate its performance on a test set. Follow the instructions provided in the points below to run the algorithm and retrieve the results of both *image.jpg* with a bounding box around the precition, and its respective *image.txt* label describing the detected classes and their respective bounding box in a format (class_id, x_mid, y_mid, width, height):
   1. Open your terminal
-  2. Activate your specific environment you installed the [requirments.txt](https://github.com/Kasrazn97/Logo_Detection/blob/main/requirements.txt) on
-  3. Open [detect_batch.sh](https://github.com/Kasrazn97/Logo_Detection/blob/main/detect_batch.sh) with a text editor, and change the variable Modelname according to the specific model you're evaluating (exact names are specified inside detect_batch.sh).
-  4. See the results under Assets/outputs/\<Modelname\> . There you're going to be provided with a folder containing all the images, and in that same folder there is going to be another folder called "labels" containing all the predicted labels.
+  2. Activate the environment you installed the [requirments.txt](https://github.com/Kasrazn97/Logo_Detection/blob/main/requirements.txt) on
+  3. Open [detect_batch.sh](https://github.com/Kasrazn97/Logo_Detection/blob/main/detect_batch.sh) with a text editor, and change the variable *Modelname* according to the specific model you're evaluating (exact names are specified inside *detect_batch.sh*).
+  4. See the results under *Assets/outputs/\<Modelname\>* . There you're going to be provided with a folder containing all the images, and in that same folder there is going to be another folder called "labels" containing all the predicted labels.
