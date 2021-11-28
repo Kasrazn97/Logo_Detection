@@ -6,7 +6,7 @@ Brands want to understand who uses their products and how. One way to do so is t
 Our goal here was to train a model able to detect brand logos.
 
 ## Detection Results
- -- put here some pictures with the bounding boxes --
+
 
 ## Table of contents
 1. [ Environment & Requirements ](#env)
@@ -112,6 +112,11 @@ We used 2 different metrics to evaluate our model:
 | YOLOv5l | 0.943 | 0.713 
 <br>
  </center>
+
+Model 1             |  Model 3             | Final model
+:-------------------------:|:-------------------------:|:-------------------------:
+![](https://github.com/Kasrazn97/Logo_Detection/blob/main/images/YOLOv5s_v1.jpg)  |  ![](https://github.com/Kasrazn97/Logo_Detection/blob/main/images/YOLOv5s_v3.jpg)  |  ![](https://github.com/Kasrazn97/Logo_Detection/blob/main/images/YOLOv5l.jpg)
+
   
    Here the results for **YOLOv5l** for each logo: 
  
