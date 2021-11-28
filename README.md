@@ -184,17 +184,12 @@ We used 2 different metrics to evaluate our model:
   
 # TO DO
 <a name="inf"></a>
-### Inference: (Nicco here!)
 
   
 <a name="det"></a>
-### Detection: 
-  
+### Inference and detection: 
+  Once our algorithm has finished training, we can evaluate its performance on a test set. Follow the instructions provided in the points below to run the algorithm and retrieve the results of both image.jpg with a bounding box around the precition, and its respective image.txt label describing the detected classes and their respective bounding box in a format (class_id, x_mid, y_mid, width, height).
   1. Open your terminal
   2. Activate your specific environment you installed the [requirments.txt](https://github.com/Kasrazn97/Logo_Detection/blob/main/requirements.txt) on
-  3. Run [detect_batch.sh](https://github.com/Kasrazn97/Logo_Detection/blob/main/detect_batch.sh)
-  4. See the results under Assets/outputs/output
-  
- <a name="ex"></a>
-## 4. Usage Example
-put the commands to run on the terminal to use our algo
+  3. Open [detect_batch.sh] (https://github.com/Kasrazn97/Logo_Detection/blob/main/detect_batch.sh) with a text editor, and change the variable Modelname according to the specific model you're evaluating (exact names are specified inside detect_batch.sh).
+  4. See the results under Assets/outputs/\<Modelname\> . There you're going to be provided with a folder containing all the images, and in that same folder there is going to be another folder called "labels" containing all the predicted labels.
