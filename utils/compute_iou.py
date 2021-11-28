@@ -35,7 +35,7 @@ for file in preds_labels_txts:
 
 
 #Merges the files on file name
-merged_df = pd.merge(complete_preds,complete_true, on='fname')
+merged_df = pd.merge(complete_preds,complete_true, on='fname',how='right')
 
 
 
@@ -90,6 +90,8 @@ def calc_iou(boxA, boxB):
 for row in merged_df.iterrows():
     true_box = row[1][['x', 'y', 'w', 'h']]
     pred_box = row[1][['x_t', 'y_t', 'w_t', 'h_t']]
+    if pred_box[0]=='NaN':
+        merged_df.loc[row[0], 'IoU'] = 0
     merged_df.loc[row[0], 'IoU'] = calc_iou(true_box, pred_box)
 
 

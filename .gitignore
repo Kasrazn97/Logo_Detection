@@ -31,7 +31,6 @@ share/python-wheels/
 *.egg
 MANIFEST
 darknet/
-yolo_v5/
 datasets/
 Assets/
 raw_data/
