@@ -6,7 +6,9 @@ Brands want to understand who uses their products and how. One way to do so is t
 Our goal here was to train a model able to detect brand logos.
 
 ## Detection Results
-
+<div align="center">
+ <img src="https://github.com/Kasrazn97/Logo_Detection/blob/main/images/miami_1538043753243582175_20170615_jpg.rf.def159add6f9afd650b705187a30f681%20copy.jpg" width ="200" /> <img src="https://github.com/Kasrazn97/Logo_Detection/blob/main/images/miami_1812450792856011348_20180629_jpg.rf.2a073c16653e292741803cfc80ef914c%20copy.jpg" width ="200" />  <img src="https://github.com/Kasrazn97/Logo_Detection/blob/main/images/miami_1854099801928728671_20180826_jpg.rf.e291e127818140ed289f68244712a789%20copy.jpg" width ="200" />
+</div>
 
 ## Table of contents
 1. [ Environment & Requirements ](#env)
@@ -16,9 +18,7 @@ Our goal here was to train a model able to detect brand logos.
     3. [ Evaluation ](#eval)
 3. [ Usage Tips ](#usage)
     1. [ Data preparation ](#dataprep)
-    2. [ Inference ](#inf)
-    3. [ Detection ](#det)
-4. [ Usage Example ](#ex)
+    2. [ Inference and Detection ](#inf)
 
 <a name="env"></a>
 ## 1. Environment
@@ -84,8 +84,8 @@ The raw dataset we deployed consists of images representing the following logos:
 
 Our final models differ both in the input data used and the training steps applied.
  
-1. **Yolov5s (version 1)**: trained on the raw dataset to which we added augmentations. We kept the 10 backbone layers frozen and fine-tuned the rest. Since the model results were unsatisfatory, we manually cleaned the data by removing the poorly annotated images. **TO DO: ADD TOT NUMBER OF IMAGES**
-2. **Yolov5s (version 2)**: cleaned dataset with augmentations (about 20k images in total). Again, we trained all layers except for the backbone. **TODO: ADD NUMBER OF IMAGES PER LOGO AFTER THE CLEANING, BUT BEFORE AUGMENTATION**
+1. **Yolov5s (version 1)**: trained on the raw dataset to which we added augmentations. We kept the 10 backbone layers frozen and fine-tuned the rest. Since the model results were unsatisfatory, we manually cleaned the data by removing the poorly annotated images. Around 40k images used.
+2. **Yolov5s (version 2)**: cleaned dataset with augmentations (about 20k images in total). Again, we trained all layers except for the backbone. 
 3. **Yolov5s (version 3)**: cleaned dataset with extra augmentation steps, for a total of around 60k images (4549 per logo). Only 6 last layers were trained, thus keeping 18 frozen.
 4. **Yolov5s (version 4)**: combined dataset from step 2 and step 3, with arounf 8994 images for each logo. Tuning all the layers except for the backbone.
 5. **Yolov5l**: combined dataset from step 2 and step 3, adding more augmentation steps. We ended up having 7479 images for each logo. Again, we trained all the layers except for the backbone.
@@ -186,15 +186,12 @@ Model 1             |  Model 3             | Final model
   
   For more information regarding the data prepration refer to:
   https://github.com/ultralytics/yolov5/wiki/Train-Custom-Data
-  
-# TO DO
-<a name="inf"></a>
 
   
-<a name="det"></a>
+<a name="inf"></a>
 ### Inference and detection: 
   Once our algorithm has finished training, we can evaluate its performance on a test set. Follow the instructions provided in the points below to run the algorithm and retrieve the results of both image.jpg with a bounding box around the precition, and its respective image.txt label describing the detected classes and their respective bounding box in a format (class_id, x_mid, y_mid, width, height).
   1. Open your terminal
   2. Activate your specific environment you installed the [requirments.txt](https://github.com/Kasrazn97/Logo_Detection/blob/main/requirements.txt) on
-  3. Open [detect_batch.sh] (https://github.com/Kasrazn97/Logo_Detection/blob/main/detect_batch.sh) with a text editor, and change the variable Modelname according to the specific model you're evaluating (exact names are specified inside detect_batch.sh).
+  3. Open [detect_batch.sh](https://github.com/Kasrazn97/Logo_Detection/blob/main/detect_batch.sh) with a text editor, and change the variable Modelname according to the specific model you're evaluating (exact names are specified inside detect_batch.sh).
   4. See the results under Assets/outputs/\<Modelname\> . There you're going to be provided with a folder containing all the images, and in that same folder there is going to be another folder called "labels" containing all the predicted labels.
