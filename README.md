@@ -6,16 +6,19 @@ Brands want to understand who uses their products and how. One way to do so is t
 Our goal here was to train a model able to detect brand logos.
 
 ## Detection Results
- -- put here some pictures with the bounding boxes --
+<div align="center">
+ <img src="https://github.com/Kasrazn97/Logo_Detection/blob/main/images/miami_1538043753243582175_20170615_jpg.rf.def159add6f9afd650b705187a30f681%20copy.jpg" width ="200" /> <img src="https://github.com/Kasrazn97/Logo_Detection/blob/main/images/miami_1812450792856011348_20180629_jpg.rf.2a073c16653e292741803cfc80ef914c%20copy.jpg" width ="200" />  <img src="https://github.com/Kasrazn97/Logo_Detection/blob/main/images/miami_1854099801928728671_20180826_jpg.rf.e291e127818140ed289f68244712a789%20copy.jpg" width ="200" />
+</div>
 
 ## Table of contents
-1. [ Environment ](#env)
-2. [ Description ](#usage)
+1. [ Environment & Requirements ](#env)
+2. [ Description ](#desc)
     1. [ Dataset ](#dataset)
     2. [ Training ](#train)
     3. [ Evaluation ](#eval)
-3. [ Usage Tips ](#desc)
-4. [ Usage Example ](#ex)
+3. [ Usage Tips ](#usage)
+    1. [ Data preparation ](#dataprep)
+    2. [ Inference and Detection ](#inf)
 
 <a name="env"></a>
 ## 1. Environment
@@ -29,16 +32,23 @@ Our goal here was to train a model able to detect brand logos.
 </div>
 
 We developed our codes using *Google Colab*, and then we trained the largest ones on an *Azure Virtual Machine*:   
-To use the package, follow the guidline bellow:
-
-1. Install python version 3.8
-2. Install the latest version of PyTorch with Cuda 11.3 enabled from the official website
-3. Install the required packes with:
-  ``` pip install -r requirments.txt ```
 
 <p align="center">
 <img src="https://github.com/Kasrazn97/Logo_Detection/blob/main/images/VM.jpeg" width="800" height="200">
 <p>
+ 
+ 
+
+To use the package, follow the guidline bellow:
+
+1. Install python version 3.8
+2. Install the latest version of PyTorch with Cuda 11.3 enabled from the official website
+3. Install the required packages:
+  ``` 
+      $ git clone https://github.com/Kasrazn97/Logo_Detection
+      $ cd Logo_Detection
+      $ pip install -r requirments.txt 
+ ```
  
 <a name="desc"></a>
 ## 2. Description
@@ -74,8 +84,8 @@ The raw dataset we deployed consists of images representing the following logos:
 
 Our final models differ both in the input data used and the training steps applied.
  
-1. **Yolov5s (version 1)**: trained on the raw dataset to which we added augmentations. We kept the 10 backbone layers frozen and fine-tuned the rest. Since the model results were unsatisfatory, we manually cleaned the data by removing the poorly annotated images. **TO DO: ADD TOT NUMBER OF IMAGES**
-2. **Yolov5s (version 2)**: cleaned dataset with augmentations (about 20k images in total). Again, we trained all layers except for the backbone. **TODO: ADD NUMBER OF IMAGES PER LOGO AFTER THE CLEANING, BUT BEFORE AUGMENTATION**
+1. **Yolov5s (version 1)**: trained on the raw dataset to which we added augmentations. We kept the 10 backbone layers frozen and fine-tuned the rest. Since the model results were unsatisfatory, we manually cleaned the data by removing the poorly annotated images. Around 40k images used.
+2. **Yolov5s (version 2)**: cleaned dataset with augmentations (about 20k images in total). Again, we trained all layers except for the backbone. 
 3. **Yolov5s (version 3)**: cleaned dataset with extra augmentation steps, for a total of around 60k images (4549 per logo). Only 6 last layers were trained, thus keeping 18 frozen.
 4. **Yolov5s (version 4)**: combined dataset from step 2 and step 3, with arounf 8994 images for each logo. Tuning all the layers except for the backbone.
 5. **Yolov5l**: combined dataset from step 2 and step 3, adding more augmentation steps. We ended up having 7479 images for each logo. Again, we trained all the layers except for the backbone.
@@ -93,15 +103,20 @@ We used 2 different metrics to evaluate our model:
  
  <center>
   
-| Model| mAP<sup>val<br>0.5 |mAP<sup>val<br>0.5:0.95 | IoU
-| :-----: | :-: | :-: | :-:
-| YOLOv5s - v1 |  |  |
-| YOLOv5s - v2 |   |  |
-| YOLOv5s - v3 |   |  |
-| YOLOv5s - v4 | 0.881 | 0.664 |
-| YOLOv5l | 0.943 | 0.713 |
+| Model| mAP<sup>val<br>0.5 |mAP<sup>val<br>0.5:0.95  
+| :-----: | :-: | :-: 
+| YOLOv5s - v1 | 0.598 | 0.364 
+| YOLOv5s - v2 | 0.851 | 0.662 
+| YOLOv5s - v3 | 0.846 | 0.563 
+| YOLOv5s - v4 | 0.881 | 0.664 
+| YOLOv5l | 0.943 | 0.713 
 <br>
  </center>
+
+Model 1             |  Model 3             | Final model
+:-------------------------:|:-------------------------:|:-------------------------:
+![](https://github.com/Kasrazn97/Logo_Detection/blob/main/images/YOLOv5s_v1.jpg)  |  ![](https://github.com/Kasrazn97/Logo_Detection/blob/main/images/YOLOv5s_v3.jpg)  |  ![](https://github.com/Kasrazn97/Logo_Detection/blob/main/images/YOLOv5l.jpg)
+
   
    Here the results for **YOLOv5l** for each logo: 
  
@@ -109,31 +124,33 @@ We used 2 different metrics to evaluate our model:
   
 | Logo| mAP<sup>val<br>0.5 |mAP<sup>val<br>0.5:0.95 | IoU
 | :-----: | :-: | :-: | :-:
-| Adidas | 0.98 | 0.753 |
-| Apple Inc. | 0.981 | 0.761 |
-| Chanel | 0.981 | 0.678 |
-| Coca Cola | 0.886 | 0.619 |
-| Emirates | 0.779 | 0.569 |
-| Hard Rock Cafè | 0.957 | 0.743 |
-| Mercedes Benz | 0.984 | 0.789 |
-| NFL | 0.965 | 0.731 |
-| Nike | 0.959 | 0.706 |
-| Pepsi | 0.942 | 0.676 |
-| Puma | 0.925 | 0.667 |
-| Starbucks | 0.975 | 0.823 |
-| The North Face | 0.975 | 0.741 |
-| Toyota | 0.961 | 0.737 |
-| Under Armour | 0.977 | 0.71 |
+| Adidas | 0.98 | 0.753 | 0.873
+| Apple Inc. | 0.981 | 0.761 | 0.896
+| Chanel | 0.981 | 0.678 | 0.797
+| Coca Cola | 0.886 | 0.619 | 0.786
+| Emirates | 0.779 | 0.569 | 0.158
+| Hard Rock Cafè | 0.957 | 0.743 | 0.859
+| Mercedes Benz | 0.984 | 0.789 | 0.915
+| NFL | 0.965 | 0.731 | 0.876
+| Nike | 0.959 | 0.706 | 0.868
+| Pepsi | 0.942 | 0.676 | 0.843
+| Puma | 0.925 | 0.667 | 0.793
+| Starbucks | 0.975 | 0.823 | 0.916
+| The North Face | 0.975 | 0.741 | 0.887
+| Toyota | 0.961 | 0.737 | 0.883
+| Under Armour | 0.977 | 0.71 | 0.867
 <br>
  </center>
  
 <a name="usage"></a>
 ## 3. Usage Tips
-- **Data preparation**:
+  
+<a name="dataprep"></a>
+### Data preparation:
   **Train and Inference:**
   
   1. Clone the repository on your local machine.
-  2. Cd Loggo_Detection
+  2. Cd Logo_Detection
   3. Create a folder name **Assets**
   4. Cd Assets
   5. Create a folder name **dataset**
@@ -155,7 +172,7 @@ We used 2 different metrics to evaluate our model:
   **Detect:**
   
   1. Clone the repository on your local machine.
-  2. Cd Loggo_Detection
+  2. Cd Logo_Detection
   3. Create a folder name **Assets**
   4. Cd Assets
   5. Create a folder name **testnow**
@@ -169,14 +186,12 @@ We used 2 different metrics to evaluate our model:
   
   For more information regarding the data prepration refer to:
   https://github.com/ultralytics/yolov5/wiki/Train-Custom-Data
-- **Inference**: (Nicco here!)
-- **Detection**: see the [detect_batch.sh](https://github.com/Kasrazn97/Logo_Detection/blob/main/detect_batch.sh) file
+
   
+<a name="inf"></a>
+### Inference and detection: 
+  Once our algorithm has finished training, we can evaluate its performance on a test set. Follow the instructions provided in the points below to run the algorithm and retrieve the results of both image.jpg with a bounding box around the precition, and its respective image.txt label describing the detected classes and their respective bounding box in a format (class_id, x_mid, y_mid, width, height).
   1. Open your terminal
-  2. Activate your specific environment you installed the requirments.txt on
-  3. run detect_bach.sh
-  4. See the results under Assets/outputs/output
-  
- <a name="ex"></a>
-## 4. Usage Example
-put the commands to run on the terminal to use our algo
+  2. Activate your specific environment you installed the [requirments.txt](https://github.com/Kasrazn97/Logo_Detection/blob/main/requirements.txt) on
+  3. Open [detect_batch.sh](https://github.com/Kasrazn97/Logo_Detection/blob/main/detect_batch.sh) with a text editor, and change the variable Modelname according to the specific model you're evaluating (exact names are specified inside detect_batch.sh).
+  4. See the results under Assets/outputs/\<Modelname\> . There you're going to be provided with a folder containing all the images, and in that same folder there is going to be another folder called "labels" containing all the predicted labels.
