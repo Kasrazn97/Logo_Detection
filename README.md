@@ -9,12 +9,15 @@ Our goal here was to train a model able to detect brand logos.
  -- put here some pictures with the bounding boxes --
 
 ## Table of contents
-1. [ Environment ](#env)
+1. [ Environment & Requirements ](#env)
 2. [ Description ](#usage)
     1. [ Dataset ](#dataset)
     2. [ Training ](#train)
     3. [ Evaluation ](#eval)
-3. [ Usage Tips ](#desc)
+3. [ Usage Tips ](#usage)
+    1. [ Data preparation ](#dataprep)
+    2. [ Inference ](#inf)
+    3. [ Detection ](#det)
 4. [ Usage Example ](#ex)
 
 <a name="env"></a>
@@ -29,16 +32,19 @@ Our goal here was to train a model able to detect brand logos.
 </div>
 
 We developed our codes using *Google Colab*, and then we trained the largest ones on an *Azure Virtual Machine*:   
+
+<p align="center">
+<img src="https://github.com/Kasrazn97/Logo_Detection/blob/main/images/VM.jpeg" width="800" height="200">
+<p>
+ 
+ 
+
 To use the package, follow the guidline bellow:
 
 1. Install python version 3.8
 2. Install the latest version of PyTorch with Cuda 11.3 enabled from the official website
 3. Install the required packes with:
   ``` pip install -r requirments.txt ```
-
-<p align="center">
-<img src="https://github.com/Kasrazn97/Logo_Detection/blob/main/images/VM.jpeg" width="800" height="200">
-<p>
  
 <a name="desc"></a>
 ## 2. Description
@@ -113,7 +119,7 @@ We used 2 different metrics to evaluate our model:
 | Apple Inc. | 0.981 | 0.761 |
 | Chanel | 0.981 | 0.678 |
 | Coca Cola | 0.886 | 0.619 |
-| Emirates | 0.779 | 0.569 |
+| Emirates | 0.779 | 0.569 | 0.158
 | Hard Rock Cafè | 0.957 | 0.743 |
 | Mercedes Benz | 0.984 | 0.789 |
 | NFL | 0.965 | 0.731 |
@@ -129,11 +135,13 @@ We used 2 different metrics to evaluate our model:
  
 <a name="usage"></a>
 ## 3. Usage Tips
-- **Data preparation**:
+  
+<a name="dataprep"></a>
+### Data preparation:
   **Train and Inference:**
   
   1. Clone the repository on your local machine.
-  2. Cd Loggo_Detection
+  2. Cd Logo_Detection
   3. Create a folder name **Assets**
   4. Cd Assets
   5. Create a folder name **dataset**
@@ -155,7 +163,7 @@ We used 2 different metrics to evaluate our model:
   **Detect:**
   
   1. Clone the repository on your local machine.
-  2. Cd Loggo_Detection
+  2. Cd Logo_Detection
   3. Create a folder name **Assets**
   4. Cd Assets
   5. Create a folder name **testnow**
@@ -171,12 +179,16 @@ We used 2 different metrics to evaluate our model:
   https://github.com/ultralytics/yolov5/wiki/Train-Custom-Data
   
 # TO DO
-- **Inference**: (Nicco here!)
-- **Detection**: see the [detect_batch.sh](https://github.com/Kasrazn97/Logo_Detection/blob/main/detect_batch.sh) file
+<a name="inf"></a>
+### Inference: (Nicco here!)
+
+  
+<a name="det"></a>
+### Detection: 
   
   1. Open your terminal
-  2. Activate your specific environment you installed the requirments.txt on
-  3. run detect_bach.sh
+  2. Activate your specific environment you installed the [requirments.txt](https://github.com/Kasrazn97/Logo_Detection/blob/main/requirements.txt) on
+  3. Run [detect_batch.sh](https://github.com/Kasrazn97/Logo_Detection/blob/main/detect_batch.sh)
   4. See the results under Assets/outputs/output
   
  <a name="ex"></a>
