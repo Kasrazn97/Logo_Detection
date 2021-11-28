@@ -139,7 +139,6 @@ dmypy.json
 
 # dataset folders
 darknet_dataset/
-yolo5_dataset/
 DLCV_logo_project/
 raw_data/
 *.gz
