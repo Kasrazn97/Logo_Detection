@@ -119,21 +119,21 @@ We used 2 different metrics to evaluate our model:
   
 | Logo| mAP<sup>val<br>0.5 |mAP<sup>val<br>0.5:0.95 | IoU
 | :-----: | :-: | :-: | :-:
-| Adidas | 0.98 | 0.753 |
-| Apple Inc. | 0.981 | 0.761 |
-| Chanel | 0.981 | 0.678 |
-| Coca Cola | 0.886 | 0.619 |
+| Adidas | 0.98 | 0.753 | 0.873
+| Apple Inc. | 0.981 | 0.761 | 0.896
+| Chanel | 0.981 | 0.678 | 0.797
+| Coca Cola | 0.886 | 0.619 | 0.786
 | Emirates | 0.779 | 0.569 | 0.158
-| Hard Rock Cafè | 0.957 | 0.743 |
-| Mercedes Benz | 0.984 | 0.789 |
-| NFL | 0.965 | 0.731 |
-| Nike | 0.959 | 0.706 |
-| Pepsi | 0.942 | 0.676 |
-| Puma | 0.925 | 0.667 |
-| Starbucks | 0.975 | 0.823 |
-| The North Face | 0.975 | 0.741 |
-| Toyota | 0.961 | 0.737 |
-| Under Armour | 0.977 | 0.71 |
+| Hard Rock Cafè | 0.957 | 0.743 | 0.859
+| Mercedes Benz | 0.984 | 0.789 | 0.915
+| NFL | 0.965 | 0.731 | 0.876
+| Nike | 0.959 | 0.706 | 0.868
+| Pepsi | 0.942 | 0.676 | 0.843
+| Puma | 0.925 | 0.667 | 0.793
+| Starbucks | 0.975 | 0.823 | 0.916
+| The North Face | 0.975 | 0.741 | 0.887
+| Toyota | 0.961 | 0.737 | 0.883
+| Under Armour | 0.977 | 0.71 | 0.867
 <br>
  </center>
  
