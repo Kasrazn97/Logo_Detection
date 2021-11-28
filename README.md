@@ -67,7 +67,7 @@ We chose [YoloV5](https://github.com/ultralytics/yolov5/blob/master/README.md) s
 <a name="dataset"></a>
 ### 1. Dataset
 
-The raw dataset we deployed consists of images representing the following logos: Nike, Adidas, Under Armour, Puma, The North Face, Starbucks, Apple Inc., Mercedes-Benz, NFL, Emirates, Coca-Cola, Chanel, Toyota, Pepsi, Hard Rock Cafè. We used [Roboflow](https://roboflow.com/?ref=ultralytics) to convert dataset to a COCO format and apply preprocessing steps which include image resize and data augmentation. In particular we applied the following augmentations: rotation, blur, flip, shear, exposure, mosaic, crop (both at image and bounding box levels). 
+The raw dataset we deployed consists of images representing the following logos: Nike, Adidas, Under Armour, Puma, The North Face, Starbucks, Apple Inc., Mercedes-Benz, NFL, Coca-Cola, Chanel, Toyota, Pepsi, Hard Rock Cafè. We used [Roboflow](https://roboflow.com/?ref=ultralytics) to convert dataset to a COCO format and apply preprocessing steps which include image resize and data augmentation. In particular we applied the following augmentations: rotation, blur, flip, shear, exposure, mosaic, crop (both at image and bounding box levels). 
  
  <div align="center">
     <a href="https://roboflow.com/?ref=ultralytics">
@@ -126,7 +126,6 @@ YOLOv5s - v1            |  YOLOv5s - v3            | YOLOv5l
 | Apple Inc. | 0.981 | 0.761 | 0.896
 | Chanel | 0.981 | 0.678 | 0.797
 | Coca Cola | 0.886 | 0.619 | 0.786
-| Emirates | 0.779 | 0.569 | 0.158
 | Hard Rock Cafè | 0.957 | 0.743 | 0.859
 | Mercedes Benz | 0.984 | 0.789 | 0.915
 | NFL | 0.965 | 0.731 | 0.876
