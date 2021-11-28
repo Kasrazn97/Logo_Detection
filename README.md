@@ -10,7 +10,7 @@ Our goal here was to train a model able to detect brand logos.
 
 ## Table of contents
 1. [ Environment & Requirements ](#env)
-2. [ Description ](#usage)
+2. [ Description ](#desc)
     1. [ Dataset ](#dataset)
     2. [ Training ](#train)
     3. [ Evaluation ](#eval)
@@ -43,8 +43,12 @@ To use the package, follow the guidline bellow:
 
 1. Install python version 3.8
 2. Install the latest version of PyTorch with Cuda 11.3 enabled from the official website
-3. Install the required packes with:
-  ``` pip install -r requirments.txt ```
+3. Install the required packages:
+  ``` 
+      $ git clone https://github.com/Kasrazn97/Logo_Detection
+      $ cd Logo_Detection
+      $ pip install -r requirments.txt 
+ ```
  
 <a name="desc"></a>
 ## 2. Description
