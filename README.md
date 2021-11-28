@@ -86,9 +86,9 @@ Our final models differ both in the input data used and the training steps appli
  
 1. **YOLOv5s (version 1)**: trained on the raw dataset to which we added augmentations. We kept the 10 backbone layers frozen and fine-tuned the rest. Since the model results were unsatisfatory, we manually cleaned the data by removing the poorly annotated images. Around 40k images used.
 2. **YOLOv5s (version 2)**: cleaned dataset with augmentations (about 20k images in total). Again, we trained all layers except for the backbone. 
-3. **YOLOv5s (version 3)**: cleaned dataset with extra augmentation steps, for a total of around 60k images (4549 per logo). Only 6 last layers were trained, thus keeping 18 frozen.
-4. **YOLOv5s (version 4)**: combined dataset from step 2 and step 3, with arounf 8994 images for each logo. Tuning all the layers except for the backbone.
-5. **YOLOv5l**: combined dataset from step 2 and step 3, adding more augmentation steps. We ended up having 7479 images for each logo. Again, we trained all the layers except for the backbone.
+3. **YOLOv5s (version 3)**: cleaned dataset with extra augmentation steps, for a total of around 60k images. Only 6 last layers were trained, thus keeping 18 frozen.
+4. **YOLOv5s (version 4)**: combined dataset from step 2 and step 3. Tuning all the layers except for the backbone.
+5. **YOLOv5l**: combined dataset from step 2 and step 3, adding more augmentation steps. Images in the training and validation set summed up to around 90k. Again, we trained all the layers except for the backbone.
 
 <a name="eval"></a>
 ### 3. Evaluation
