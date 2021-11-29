@@ -158,10 +158,10 @@ YOLOv5s - v1            |  YOLOv5s - v3            | YOLOv5l
   **Train and Inference:**
   
   1. Clone the repository on your local machine.
-  2. cd *Logo_Detection*
-  3. Create a folder name *Assets*
-  4. cd *Assets*
-  5. Create a folder name *dataset*
+  2. ```cd *Logo_Detection*```
+  3. Create a folder name **Assets**
+  4. ```cd *Assets*```
+  5. Create a folder name **dataset**
   6. Put your Yolo formated data based on the following structure:
   ```
   --Assets|
