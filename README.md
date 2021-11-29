@@ -49,6 +49,11 @@ To use the package, follow the guidline bellow:
       $ cd Logo_Detection
       $ pip install -r requirments.txt 
  ```
+ **Alternative**: You can also recreate the conda environment used for this project with the following steps:
+ 1. Clone the repository
+ 2. ```cd Logo_Detection```
+ 3. ```conda env create -f environment.yml```
+ 4. ```conda activate yolonew```
  
 <a name="desc"></a>
 ## 2. Description
