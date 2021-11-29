@@ -29,6 +29,9 @@ Our goal here was to train a model able to detect brand logos.
     <a href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwiS0f6Bt7j0AhWRzXcKHXXkA0gYABAAGgJlZg&ae=2&ohost=www.google.com&cid=CAESQOD2WXDDC3bcaN6__E7gY08J137qyTW6nOQb8DRsJPfVaCbKW_MnwwecmS8dCR7oZPQSLYd6V8LfB32ZLnpJUqA&sig=AOD64_2JGNrArPWvbnOJLMOXwqSsXl1gSw&q&adurl&ved=2ahUKEwjrovWBt7j0AhW3gv0HHXPGCYYQ0Qx6BAgCEAE&dct=1">
         <img src="https://aspiracloud.com/wp-content/uploads/2019/07/azure.png" width="10%"/>
     </a>
+    <a href="https://pytorch.org"/>
+        <img src="https://user-images.githubusercontent.com/74457464/143897946-feabe8ec-ac91-4d38-a8e0-f1db1db3d84b.png" width="20%"/>
+    </a>
 </div>
 
 We developed our codes using *Google Colab*, and then we trained the largest ones on an *Azure Virtual Machine*:   
