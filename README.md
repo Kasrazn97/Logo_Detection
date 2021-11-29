@@ -90,6 +90,15 @@ Our final models differ both in the input data used and the training steps appli
 4. **YOLOv5s (version 4)**: combined dataset from step 2 and step 3. Tuning all the layers except for the backbone.
 5. **YOLOv5l**: combined dataset from step 2 and step 3, adding more augmentation steps. Images in the training and validation set summed up to around 90k. Again, we trained all the layers except for the backbone.
 
+You can download the weitghs of all 5 models fomr [here](https://drive.google.com/drive/folders/1iMijm6dR8-kE5sFZ8fyNpDHcNXCteDlH?usp=sharing). To replicate the results, create a Folder called **Assets** and put the downloaded file inside it.
+   ```
+  --Assets|
+          |--Models|
+                    |--Yolov5l_extra_cleanData
+                    |
+                    ...
+
+  ```
 <a name="eval"></a>
 ### 3. Evaluation
 We used 2 different metrics to evaluate our model:
