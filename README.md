@@ -90,15 +90,7 @@ Our final models differ both in the input data used and the training steps appli
 4. **YOLOv5s (version 4)**: combined dataset from step 2 and step 3. Tuning all the layers except for the backbone.
 5. **YOLOv5l**: combined dataset from step 2 and step 3, adding more augmentation steps. Images in the training and validation set summed up to around 90k. Again, we trained all the layers except for the backbone.
 
-You can download the weitghs of all 5 models fomr [here](https://drive.google.com/drive/folders/1iMijm6dR8-kE5sFZ8fyNpDHcNXCteDlH?usp=sharing). To replicate the results, create a Folder called **Assets** and put the downloaded file inside it.
-   ```
-  --Assets|
-          |--Models|
-                    |--Yolov5l_extra_cleanData
-                    |
-                    ...
-
-  ```
+You can download the weitghs of all 5 models fomr [here](https://drive.google.com/drive/folders/1iMijm6dR8-kE5sFZ8fyNpDHcNXCteDlH?usp=sharing).
 <a name="eval"></a>
 ### 3. Evaluation
 We used 2 different metrics to evaluate our model:
@@ -150,7 +142,17 @@ YOLOv5s - v1            |  YOLOv5s - v3            | YOLOv5l
  
 <a name="usage"></a>
 ## 3. Usage Tips
-  
+<a name="weights"></a>
+### Weights:
+   Download the trained models results and their weights from [here](https://drive.google.com/drive/folders/1iMijm6dR8-kE5sFZ8fyNpDHcNXCteDlH?usp=sharing).Create a Folder called **Assets** and put the downloaded folder inside it.
+   ```
+  --Assets|
+           |--Models|
+                    |--yolov5l_extra_cleanData
+                    |
+                    ...
+
+  ```
 <a name="dataprep"></a>
 ### Data preparation:
   **Train and Inference:**
@@ -175,7 +177,7 @@ YOLOv5s - v1            |  YOLOv5s - v3            | YOLOv5l
                     |        |--labels
   ```
   
-  **Detect:**
+  **Detection:**
   
   1. Clone the repository on your local machine.
   2. cd *Logo_Detection*
@@ -196,7 +198,7 @@ YOLOv5s - v1            |  YOLOv5s - v3            | YOLOv5l
   
 <a name="inf"></a>
 ### Inference and detection: 
-  Once our algorithm has finished training, we can evaluate its performance on a test set. Follow the instructions provided in the points below to run the algorithm and retrieve the results of both *image.jpg* with a bounding box around the precition, and its respective *image.txt* label describing the detected classes and their respective bounding box in a format (class_id, x_mid, y_mid, width, height):
+  Once our algorithm has finished training, we can evaluate its performance on a test (you can download it from [here](https://drive.google.com/drive/folders/10c4XI9v7e0DC8tFv0Any5xXd_-HMzwTL?usp=sharing)) set. Follow the instructions provided in the points below to run the algorithm and retrieve the results of both *image.jpg* with a bounding box around the precition, and its respective *image.txt* label describing the detected classes and their respective bounding box in a format (class_id, x_mid, y_mid, width, height):
   1. Open your terminal
   2. Activate the environment you installed the [requirments.txt](https://github.com/Kasrazn97/Logo_Detection/blob/main/requirements.txt) on
   3. Open [detect_batch.sh](https://github.com/Kasrazn97/Logo_Detection/blob/main/detect_batch.sh) with a text editor, and change the variable *Modelname* according to the specific model you're evaluating (exact names are specified inside *detect_batch.sh*).
