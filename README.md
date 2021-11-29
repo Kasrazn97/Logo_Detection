@@ -180,15 +180,15 @@ YOLOv5s - v1            |  YOLOv5s - v3            | YOLOv5l
   **Detection:**
   
   1. Clone the repository on your local machine.
-  2. cd *Logo_Detection*
+  2. ```cd Logo_Detection```
   3. Create a folder name *Assets*
-  4. cd *Assets*
+  4. ```cd Assets```
   5. Create a folder name *testnow*
   6. Put all your images you want to do inference on under *testnow* folder
  <a name="training"></a>
  ### Training: 
   1. Put the related *your_data.yaml* file on *yolov5/data* (see the example [logos_yolo5.yaml](https://github.com/Kasrazn97/Logo_Detection/blob/main/yolov5/data/logos_yolo5.yaml))
-  2. cd yolov5 
+  2. ```cd yolov5 ```
   3. Run the following command (you can change the model name or any other settings you want):
   ```
   python train.py --batch-size 32 --weights yolov5s.pt --data your_data.yaml --epochs 50 --hyp hyp.finetune.yaml --freeze 10
