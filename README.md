@@ -146,11 +146,11 @@ YOLOv5s - v1            |  YOLOv5s - v3            | YOLOv5l
 ### Weights:
    Download the trained models results and their weights from [here](https://drive.google.com/drive/folders/1iMijm6dR8-kE5sFZ8fyNpDHcNXCteDlH?usp=sharing).Create a Folder called **Assets** and put the downloaded folder inside it.
    ```
-  --Assets|
-           |--Models|
-                    |--yolov5l_extra_cleanData
-                    |
-                    ...
+  Logo_Detection|
+                 |--Assets|
+                          |--Models|
+                                   |--yolov5l_extra_cleanData
+                                   ...
 
   ```
 <a name="dataprep"></a>
