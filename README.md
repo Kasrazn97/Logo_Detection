@@ -144,7 +144,7 @@ YOLOv5s - v1            |  YOLOv5s - v3            | YOLOv5l
 ## 3. Usage Tips
 <a name="weights"></a>
 ### Weights:
-   Download the trained models results and their weights from [here](https://drive.google.com/drive/folders/1iMijm6dR8-kE5sFZ8fyNpDHcNXCteDlH?usp=sharing).Create a Folder called **Assets** and put the downloaded folder inside it.
+   Download the trained models results and their weights from [here](https://drive.google.com/drive/folders/1iMijm6dR8-kE5sFZ8fyNpDHcNXCteDlH?usp=sharing). Create a Folder called **Assets** inside project folder and put the downloaded folder inside it.
    ```
   Logo_Detection|
                  |--Assets|
