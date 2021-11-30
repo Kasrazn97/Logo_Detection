@@ -208,7 +208,7 @@ YOLOv5s - v1            |  YOLOv5s - v3            | YOLOv5l
   
 <a name="inf"></a>
 ### Inference and detection: 
-  Once our algorithm has finished training, we can evaluate its performance on a test (you can download it from [here](https://drive.google.com/drive/folders/10c4XI9v7e0DC8tFv0Any5xXd_-HMzwTL?usp=sharing)) set. Follow the instructions provided in the points below to run the algorithm and retrieve the results of both *image.jpg* with a bounding box around the prediction, and its respective *image.txt* label describing the detected classes and their respective bounding box in a format (class_id, x_cen, y_cen, width, height, confidence):
+  Once our algorithm has finished training, we can evaluate its performance on a test (you can download it from [here](https://drive.google.com/drive/folders/10c4XI9v7e0DC8tFv0Any5xXd_-HMzwTL?usp=sharing), or retireve the image names and their prediction from [test_results.csv](https://github.com/Kasrazn97/Logo_Detection/blob/main/test_results.csv)) set. Follow the instructions provided in the points below to run the algorithm and retrieve the results of both *image.jpg* with a bounding box around the prediction, and its respective *image.txt* label describing the detected classes and their respective bounding box in a format (class_id, x_cen, y_cen, width, height, confidence):
   1. Open your terminal
   2. Activate the environment you installed the [requirments.txt](https://github.com/Kasrazn97/Logo_Detection/blob/main/requirements.txt) on
   3. Open [detect_batch.sh](https://github.com/Kasrazn97/Logo_Detection/blob/main/detect_batch.sh) with a text editor, and change the variable *Modelname* according to the specific model you're evaluating (exact names are specified inside *detect_batch.sh*).
