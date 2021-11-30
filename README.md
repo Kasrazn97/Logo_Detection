@@ -29,6 +29,9 @@ Our goal here was to train a model able to detect brand logos.
     <a href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwiS0f6Bt7j0AhWRzXcKHXXkA0gYABAAGgJlZg&ae=2&ohost=www.google.com&cid=CAESQOD2WXDDC3bcaN6__E7gY08J137qyTW6nOQb8DRsJPfVaCbKW_MnwwecmS8dCR7oZPQSLYd6V8LfB32ZLnpJUqA&sig=AOD64_2JGNrArPWvbnOJLMOXwqSsXl1gSw&q&adurl&ved=2ahUKEwjrovWBt7j0AhW3gv0HHXPGCYYQ0Qx6BAgCEAE&dct=1">
         <img src="https://aspiracloud.com/wp-content/uploads/2019/07/azure.png" width="10%"/>
     </a>
+    <a href="https://pytorch.org"/>
+        <img src="https://user-images.githubusercontent.com/74457464/143897946-feabe8ec-ac91-4d38-a8e0-f1db1db3d84b.png" width="20%"/>
+    </a>
 </div>
 
 We developed our codes using *Google Colab*, and then we trained the largest ones on an *Azure Virtual Machine*:   
@@ -49,6 +52,11 @@ To use the package, follow the guidline bellow:
       $ cd Logo_Detection
       $ pip install -r requirments.txt 
  ```
+ **Alternative**: You can also recreate the conda environment used for this project with the following steps:
+ 1. Clone the repository
+ 2. ```cd Logo_Detection```
+ 3. ```conda env create -f environment.yml```
+ 4. ```conda activate yolonew```
  
 <a name="desc"></a>
 ## 2. Description
@@ -67,7 +75,7 @@ We chose [YoloV5](https://github.com/ultralytics/yolov5/blob/master/README.md) s
 <a name="dataset"></a>
 ### 1. Dataset
 
-The raw dataset we deployed consists of images representing the following logos: Nike, Adidas, Under Armour, Puma, The North Face, Starbucks, Apple Inc., Mercedes-Benz, NFL, Emirates, Coca-Cola, Chanel, Toyota, Pepsi, Hard Rock Cafè. We used [Roboflow](https://roboflow.com/?ref=ultralytics) to convert dataset to a COCO format and apply preprocessing steps which include image resize and data augmentation. In particular we applied the following augmentations: rotation, blur, flip, shear, exposure, mosaic, crop (both at image and bounding box levels). 
+The raw dataset we deployed consists of images representing the following logos: Nike, Adidas, Under Armour, Puma, The North Face, Starbucks, Apple Inc., Mercedes-Benz, NFL, Coca-Cola, Chanel, Toyota, Pepsi, Hard Rock Cafè. We used [Roboflow](https://roboflow.com/?ref=ultralytics) to convert dataset to a COCO format and apply preprocessing steps which include image resize and data augmentation. In particular we applied the following augmentations: rotation, blur, flip, shear, exposure, mosaic, crop (both at image and bounding box levels). 
  
  <div align="center">
     <a href="https://roboflow.com/?ref=ultralytics">
@@ -86,10 +94,11 @@ Our final models differ both in the input data used and the training steps appli
  
 1. **YOLOv5s (version 1)**: trained on the raw dataset to which we added augmentations. We kept the 10 backbone layers frozen and fine-tuned the rest. Since the model results were unsatisfatory, we manually cleaned the data by removing the poorly annotated images. Around 40k images used.
 2. **YOLOv5s (version 2)**: cleaned dataset with augmentations (about 20k images in total). Again, we trained all layers except for the backbone. 
-3. **YOLOv5s (version 3)**: cleaned dataset with extra augmentation steps, for a total of around 60k images (4549 per logo). Only 6 last layers were trained, thus keeping 18 frozen.
-4. **YOLOv5s (version 4)**: combined dataset from step 2 and step 3, with arounf 8994 images for each logo. Tuning all the layers except for the backbone.
-5. **YOLOv5l**: combined dataset from step 2 and step 3, adding more augmentation steps. We ended up having 7479 images for each logo. Again, we trained all the layers except for the backbone.
+3. **YOLOv5s (version 3)**: cleaned dataset with extra augmentation steps, for a total of around 60k images fine-tuned on model version 2 in the last step. Only 6 last layers were trained, thus keeping 18 frozen.
+4. **YOLOv5s (version 4)**: combined dataset from step 2 and step 3. Tuning all the layers except for the backbone.
+5. **YOLOv5l**: combined dataset from step 2 and step 3, adding more augmentation steps. Images in the training and validation set summed up to around 90k. Again, we trained all the layers except for the backbone.
 
+You can download the weitghs of all 5 models fomr [here](https://drive.google.com/drive/folders/1iMijm6dR8-kE5sFZ8fyNpDHcNXCteDlH?usp=sharing).
 <a name="eval"></a>
 ### 3. Evaluation
 We used 2 different metrics to evaluate our model:
@@ -126,7 +135,6 @@ YOLOv5s - v1            |  YOLOv5s - v3            | YOLOv5l
 | Apple Inc. | 0.981 | 0.761 | 0.896
 | Chanel | 0.981 | 0.678 | 0.797
 | Coca Cola | 0.886 | 0.619 | 0.786
-| Emirates | 0.779 | 0.569 | 0.158
 | Hard Rock Cafè | 0.957 | 0.743 | 0.859
 | Mercedes Benz | 0.984 | 0.789 | 0.915
 | NFL | 0.965 | 0.731 | 0.876
@@ -142,16 +150,26 @@ YOLOv5s - v1            |  YOLOv5s - v3            | YOLOv5l
  
 <a name="usage"></a>
 ## 3. Usage Tips
-  
+<a name="weights"></a>
+### Weights:
+   Download the trained models results and their weights from [here](https://drive.google.com/drive/folders/1iMijm6dR8-kE5sFZ8fyNpDHcNXCteDlH?usp=sharing). Create a Folder called **Assets** inside project folder and put the downloaded folder inside it.
+   ```
+  Logo_Detection|
+                 |--Assets|
+                          |--Models|
+                                   |--yolov5l_extra_cleanData
+                                   ...
+
+  ```
 <a name="dataprep"></a>
 ### Data preparation:
   **Train and Inference:**
   
   1. Clone the repository on your local machine.
-  2. cd *Logo_Detection*
-  3. Create a folder name *Assets*
-  4. cd *Assets*
-  5. Create a folder name *dataset*
+  2. ```cd *Logo_Detection*```
+  3. Create a folder name **Assets**
+  4. ```cd *Assets*```
+  5. Create a folder name **dataset**
   6. Put your Yolo formated data based on the following structure:
   ```
   --Assets|
@@ -167,19 +185,21 @@ YOLOv5s - v1            |  YOLOv5s - v3            | YOLOv5l
                     |        |--labels
   ```
   
-  **Detect:**
+  **Detection:**
   
   1. Clone the repository on your local machine.
-  2. cd *Logo_Detection*
+  2. ```cd Logo_Detection```
   3. Create a folder name *Assets*
-  4. cd *Assets*
+  4. ```cd Assets```
   5. Create a folder name *testnow*
   6. Put all your images you want to do inference on under *testnow* folder
-- **Training**: 
-  1. Put the related *data.yaml* file on *yolov5/data*
-  2. Run the following command (you can change the model name or any other settings you want):
+ <a name="training"></a>
+ ### Training: 
+  1. Put the related *your_data.yaml* file on *yolov5/data* (see the example [logos_yolo5.yaml](https://github.com/Kasrazn97/Logo_Detection/blob/main/yolov5/data/logos_yolo5.yaml))
+  2. ```cd yolov5 ```
+  3. Run the following command (you can change the model name or any other settings you want):
   ```
-  python train.py --batch-size 32 --weights yolov5s.pt --data data.yaml --epochs 50 --hyp hyp.finetune.yaml --freeze 10
+  python train.py --batch-size 32 --weights yolov5s.pt --data your_data.yaml --epochs 50 --hyp hyp.finetune.yaml --freeze 10
   ```
   
   For more information regarding the data prepration refer to:
@@ -188,7 +208,7 @@ YOLOv5s - v1            |  YOLOv5s - v3            | YOLOv5l
   
 <a name="inf"></a>
 ### Inference and detection: 
-  Once our algorithm has finished training, we can evaluate its performance on a test set. Follow the instructions provided in the points below to run the algorithm and retrieve the results of both *image.jpg* with a bounding box around the precition, and its respective *image.txt* label describing the detected classes and their respective bounding box in a format (class_id, x_mid, y_mid, width, height):
+  Once our algorithm has finished training, we can evaluate its performance on a test (you can download it from [here](https://drive.google.com/drive/folders/10c4XI9v7e0DC8tFv0Any5xXd_-HMzwTL?usp=sharing)) set. Follow the instructions provided in the points below to run the algorithm and retrieve the results of both *image.jpg* with a bounding box around the prediction, and its respective *image.txt* label describing the detected classes and their respective bounding box in a format (class_id, x_cen, y_cen, width, height, confidence):
   1. Open your terminal
   2. Activate the environment you installed the [requirments.txt](https://github.com/Kasrazn97/Logo_Detection/blob/main/requirements.txt) on
   3. Open [detect_batch.sh](https://github.com/Kasrazn97/Logo_Detection/blob/main/detect_batch.sh) with a text editor, and change the variable *Modelname* according to the specific model you're evaluating (exact names are specified inside *detect_batch.sh*).
