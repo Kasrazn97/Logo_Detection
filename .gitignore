@@ -147,4 +147,4 @@ raw_data/
 *.jpg
 # Jupyter notebooks
 *.ipynb
-*.csv
+
