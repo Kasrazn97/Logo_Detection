@@ -19,6 +19,7 @@ Our goal here was to train a model able to detect brand logos.
 3. [ Usage Tips ](#usage)
     1. [ Data preparation ](#dataprep)
     2. [ Inference and Detection ](#inf)
+4. [ The contributors ](#us) 
 
 <a name="env"></a>
 ## 1. Environment
@@ -130,22 +131,22 @@ YOLOv5s - v1            |  YOLOv5s - v3            | YOLOv5l
   
    Here the results for **YOLOv5l** for each logo: 
  
-| Logo| mAP<sup>val<br>0.5 |mAP<sup>val<br>0.5:0.95 | IoU
-| :-----: | :-: | :-: | :-:
-| Adidas | 0.98 | 0.753 | 0.873
-| Apple Inc. | 0.981 | 0.761 | 0.896
-| Chanel | 0.981 | 0.678 | 0.797
-| Coca Cola | 0.886 | 0.619 | 0.786
-| Hard Rock Cafè | 0.957 | 0.743 | 0.859
-| Mercedes Benz | 0.984 | 0.789 | 0.915
-| NFL | 0.965 | 0.731 | 0.876
-| Nike | 0.959 | 0.706 | 0.868
-| Pepsi | 0.942 | 0.676 | 0.843
-| Puma | 0.925 | 0.667 | 0.793
-| Starbucks | 0.975 | 0.823 | 0.916
-| The North Face | 0.975 | 0.741 | 0.887
-| Toyota | 0.961 | 0.737 | 0.883
-| Under Armour | 0.977 | 0.71 | 0.867
+| Logo| mAP<sup>val<br>0.5 |mAP<sup>val<br>0.5:0.95 | IoU<br>>50% confidence | IoU<br>>10% confidence
+| :-----: | :-: | :-: | :-: | :-:
+| Adidas | 0.98 | 0.753 | 0.873 | 0.897
+| Apple Inc. | 0.981 | 0.761 | 0.896 | 0.902
+| Chanel | 0.981 | 0.678 | 0.797 | 0.873
+| Coca Cola | 0.886 | 0.619 | 0.786 | 0.853
+| Hard Rock Cafè | 0.957 | 0.743 | 0.859 | 0.883
+| Mercedes Benz | 0.984 | 0.789 | 0.915 | 0.924
+| NFL | 0.965 | 0.731 | 0.876 | 0.892
+| Nike | 0.959 | 0.706 | 0.868 | 0.889
+| Pepsi | 0.942 | 0.676 | 0.843 | 0.860
+| Puma | 0.925 | 0.667 | 0.793 | 0.865
+| Starbucks | 0.975 | 0.823 | 0.916 | 0.924
+| The North Face | 0.975 | 0.741 | 0.887 | 0.907
+| Toyota | 0.961 | 0.737 | 0.883 | 0.903
+| Under Armour | 0.977 | 0.71 | 0.867 | 0.880
 <br>
 
  
@@ -214,3 +215,10 @@ YOLOv5s - v1            |  YOLOv5s - v3            | YOLOv5l
   2. Activate the environment you installed the [requirments.txt](https://github.com/Kasrazn97/Logo_Detection/blob/main/requirements.txt) on
   3. Open [detect_batch.sh](https://github.com/Kasrazn97/Logo_Detection/blob/main/detect_batch.sh) with a text editor, and change the variable *Modelname* according to the specific model you're evaluating (exact names are specified inside *detect_batch.sh*).
   4. See the results under *Assets/outputs/\<Modelname\>* . There you're going to be provided with a folder containing all the images, and in that same folder there is going to be another folder called "labels" containing all the predicted labels.
+
+<a name="us"></a>
+## 4. The contributors
+  
+<div align="center">
+ <img src="https://github.com/Kasrazn97/Logo_Detection/blob/main/images/contributors_detection.jpeg"  />
+<div />
