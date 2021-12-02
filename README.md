@@ -130,7 +130,7 @@ YOLOv5s - v1            |  YOLOv5s - v3            | YOLOv5l
   
    Here the results for **YOLOv5l** for each logo: 
  
-| Logo| mAP<sup>val<br>0.5 |mAP<sup>val<br>0.5:0.95 | IoU<br>50% confidence | IoU<br>10% confidence
+| Logo| mAP<sup>val<br>0.5 |mAP<sup>val<br>0.5:0.95 | IoU<br>>50% confidence | IoU<br>>10% confidence
 | :-----: | :-: | :-: | :-: | :-:
 | Adidas | 0.98 | 0.753 | 0.873 | 0.897
 | Apple Inc. | 0.981 | 0.761 | 0.896 | 0.902
