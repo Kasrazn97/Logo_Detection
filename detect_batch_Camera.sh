@@ -22,7 +22,7 @@ WEIGHTS="${PWD}/Assets/Models/$Modelname/weights/best.pt"
 
 if [ $# -ne 3 ]; then
 	SOURCE=$FOTODIR
-	CONF=0.10
+	CONF=0.30
 	IOU=0.4999
 else
 	SOURCE=$1
@@ -31,4 +31,4 @@ else
 fi
 
 CDIR="${PWD}/Assets/outputs"
-(cd $DIR; python detect.py --weights $WEIGHTS --source $SOURCE --conf-thres $CONF --iou-thres $IOU --agnostic-nms --augment --project $CDIR --name output_$Modelname --save-txt --save-conf)
+(cd $DIR; python detect.py --weights $WEIGHTS --source 0 --conf-thres $CONF --iou-thres $IOU --agnostic-nms --augment --project $CDIR --name output_$Modelname --save-txt --save-conf)
