@@ -19,6 +19,7 @@ Our goal here was to train a model able to detect brand logos.
 3. [ Usage Tips ](#usage)
     1. [ Data preparation ](#dataprep)
     2. [ Inference and Detection ](#inf)
+4. [ The contributors ](#us) 
 
 <a name="env"></a>
 ## 1. Environment
@@ -214,3 +215,10 @@ YOLOv5s - v1            |  YOLOv5s - v3            | YOLOv5l
   2. Activate the environment you installed the [requirments.txt](https://github.com/Kasrazn97/Logo_Detection/blob/main/requirements.txt) on
   3. Open [detect_batch.sh](https://github.com/Kasrazn97/Logo_Detection/blob/main/detect_batch.sh) with a text editor, and change the variable *Modelname* according to the specific model you're evaluating (exact names are specified inside *detect_batch.sh*).
   4. See the results under *Assets/outputs/\<Modelname\>* . There you're going to be provided with a folder containing all the images, and in that same folder there is going to be another folder called "labels" containing all the predicted labels.
+
+<a name="us"></a>
+## 4. The contributors
+  
+<div align="center">
+ <img src="https://github.com/Kasrazn97/Logo_Detection/blob/main/images/contributors_detection.jpeg"  />
+<div />
