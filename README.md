@@ -224,7 +224,6 @@ YOLOv5s - v1            |  YOLOv5s - v3            | YOLOv5l
  <img src="https://github.com/Kasrazn97/Logo_Detection/blob/main/images/contributors_detection.jpeg"  />
 <div />
 
- 
 <a name="lic"></a>
 ## 5. License
 This project is licensed under the **GNU General Public License v3.0** found in the LICENSE file in the root directory of this source tree.
